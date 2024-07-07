@@ -1,0 +1,36 @@
+class Solution {
+    public boolean isSymmetric(TreeNode root) {
+        if(root==null)
+        return false;
+
+        TreeNode left=root.left;
+        TreeNode right=root.right;
+Queue<TreeNode> que=new LinkedList<>();
+que.add(left);
+que.add(right);
+
+
+        while(!que.isEmpty())
+        {
+            TreeNode leftele=que.poll();
+            TreeNode rightele=que.poll();
+            
+            if(leftele==null && rightele==null)
+            {continue;}
+            
+
+            if(leftele==null || rightele==null)
+            return false;
+
+            if(leftele.val!=rightele.val)
+            return false;
+
+            que.add(leftele.left);
+            que.add(rightele.right);
+            que.add(leftele.right);
+            que.add(rightele.left);
+        }
+        return true;
+        
+    }
+}
