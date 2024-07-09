@@ -1,0 +1,24 @@
+class Solution {
+    public Node connect(Node root) {
+        if(root==null)
+        return null;
+
+        Node temp=root;
+
+        while(temp.left!=null)
+        {
+            Node current=temp;
+            while(current!=null)
+            {
+                current.left.next=current.right;
+                if(current.next!=null)
+            
+                    current.right.next=current.next.left;
+                
+                current=current.next;
+            }
+            temp=temp.left;
+        }
+     return root;   
+    }
+}
