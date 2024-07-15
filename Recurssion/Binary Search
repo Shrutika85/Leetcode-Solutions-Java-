@@ -1,0 +1,30 @@
+class Solution {
+    public int search(int[] nums, int target) {
+
+return binary_search(nums,0,nums.length-1,target);   
+    }
+    int binary_search(int[] arr,int low,int high,int target)
+    {
+        int mid=(high+low)/2;
+        
+        if(target==arr[mid])
+        {System.out.print("returned");
+        return mid;
+        }
+        else
+        if(high>low)
+        {
+
+        if(arr[mid]<target)
+        low=mid+1;
+       
+        else
+        
+            high=mid-1;
+
+        return binary_search(arr,low,high,target);
+        }
+
+       return -1;
+       }
+}
