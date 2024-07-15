@@ -1,0 +1,85 @@
+class Solution {
+    public List<List<String>> solveNQueens(int n) {
+
+         List<List<String>> li=new ArrayList<>();        
+        boolean[][] board=new boolean[n][n];
+        nqueens(board,0,li);
+        return li;
+        
+    }
+
+void nqueens(boolean[][] board,int row,List<List<String>> li)
+    {
+        if(row==board.length)
+        {
+            li.add(display(board));
+            return ;
+          
+        }
+
+       
+
+        for(int col=0;col<board[0].length;col++)
+        {
+            if(issafe(board,row,col))
+            {board[row][col]=true;
+            nqueens(board,row+1,li);
+            board[row][col]=false;
+            }
+        }
+
+        return ;
+    }
+
+    boolean issafe(boolean[][] board,int row,int col)
+    {
+        for(int i=0;i<row;i++)
+        {
+            if(board[i][col])
+            return false;
+        }
+
+        int ldiag=Math.min(row,col);
+        for(int i=1;i<=ldiag;i++)
+        {
+            if(board[row-i][col-i])
+            return false;
+        }
+
+         int rdiag=Math.min(row,board.length-col-1);
+        for(int i=1;i<=rdiag;i++)
+        {
+            if(board[row-i][col+i])
+            return false;
+        }
+        return true;
+    }
+
+    List<String> display(boolean[][] board)
+    {
+        List<String> li=new ArrayList<>();
+        
+        for( boolean[] row:board)
+        {
+
+String str="";
+            for(boolean b:row)
+            {
+                if(b)
+                {
+                    System.out.print("Q");
+                    str+="Q";
+                }
+                else{
+                    System.out.print(".");
+                str+=".";}
+            }
+            li.add(str);
+            System.out.println("");
+        
+        }
+        
+        return li;
+        
+    }
+}
