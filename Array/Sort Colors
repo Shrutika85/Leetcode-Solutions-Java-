@@ -1,0 +1,29 @@
+class Solution {
+    public void sortColors(int[] nums) {
+        int one=0;
+        int zero=0;
+        int two=0;
+
+        for(int num :nums)
+        {
+            if(num==0)
+            {nums[two++]=2;
+            nums[one++]=1;
+            nums[zero++]=0;}
+            if(num==1)
+            {nums[two++]=2;
+            nums[one++]=1;
+
+            }
+            if(num==2)
+            {
+              nums[two++]=2;
+            
+
+            }
+            
+
+        }
+        
+    }
+}
