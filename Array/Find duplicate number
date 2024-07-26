@@ -1,0 +1,41 @@
+class Solution {
+    public int findDuplicate(int[] nums) {
+        boolean[] bool = new boolean[nums.length];
+        for (int num : nums){
+            if (bool[num]) return num;
+            bool[num] = true;
+        }
+        return -1;
+    }
+}
+
+
+
+// class Solution {
+//     public int findDuplicate(int[] nums) {
+//         HashMap<Integer,Integer> map=new HashMap<>();
+
+//         for(int num:nums)
+//         {
+//             if(map.containsKey(num))
+//             {
+//                 int n=map.get(num);
+//                 map.replace(num,++n);
+//             }
+//             else 
+//             map.put(num,1);
+
+//         }
+
+//   for (Map.Entry<Integer,Integer> entry : map.entrySet()) {
+//             Integer key = entry.getKey();
+//             Integer value = entry.getValue();
+//             if(value>1 )
+//             return key;
+//         }
+//         return 0;
+//     }
+// }
+
+
+        
