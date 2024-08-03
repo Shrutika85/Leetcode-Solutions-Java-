@@ -1,0 +1,57 @@
+// class Solution {
+//   public int longestConsecutive(int[] nums) {
+//     int ans = 0;
+//     Set<Integer> seen = new HashSet<Integer>();
+//     for(int num : nums)
+//     {
+//         seen.add(num);
+//     }
+
+//     for (int num : nums) {
+//       if (seen.contains(num - 1))
+//         continue;
+//       int length = 1;
+//       while (seen.contains(++num))
+//         ++length;
+//       ans = Math.max(ans, length);
+
+//     }
+
+//     return ans;
+//   }
+// }
+
+
+class Solution {
+  public int longestConsecutive(int[] nums) {
+   
+   Arrays.sort(nums);
+    int length=0;
+    int smaller=Integer. MIN_VALUE;
+    int curr=0;
+    for(int num:nums)
+    {
+        if(num-1==smaller)
+        {
+            curr++;
+            smaller=num;
+        }
+       else
+       if(num==smaller)
+       {
+        
+       }
+        else
+        {
+            curr=1;
+            smaller=num;
+        }
+        length=Math.max(length,curr);
+
+    }
+
+
+return length;
+
+  }
+}
