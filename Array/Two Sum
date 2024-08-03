@@ -1,0 +1,17 @@
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        Map<Integer,Integer> numset=new HashMap<>(); //created hashmap
+        
+        for(int i=0;i<nums.length;i++)
+        {
+            int req=target-nums[i];    //calculated required value
+
+            if(numset.containsKey(req))   //checked if required value present in hashmap
+            {
+                return new int[]{numset.get(req),i};  //pair is found
+            }
+
+            numset.put(nums[i],i);  //put value and index in hashmap
+        }
+        return new int[]{};
+    }}
