@@ -3,14 +3,14 @@ class Solution {
     public String reverseWords(String s) {
         String str=s;
         str.trim();
-        Pattern pattern = Pattern.compile("\\s"); 
+        //Pattern pattern = Pattern.compile("\\s"); //code
         
-
- 
         // splitting String str with a pattern 
         // (i.e )splitting the string whenever their 
         // is whitespace and store in temp array. 
-        String[] temp = pattern.split(str); 
+        //String[] temp = pattern.split(str);  //code 
+        String[] temp = str.split(" "); 
+
         String result = ""; 
  
         // Iterate over the temp array and store 
