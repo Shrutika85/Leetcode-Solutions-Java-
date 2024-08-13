@@ -1,5 +1,22 @@
 class Solution {
     public int findKthLargest(int[] nums, int k) {
+        int freq[] = new int[20001];
+        for(int num: nums) freq[num+10000]++;
+        for(int i=20000;i>=0;i--){
+            if(freq[i]>0){
+                k-=freq[i];
+                if(k<1) return i-10000;
+            }
+        }
+        return 0;
+    }
+}
+
+
+
+
+class Solution {
+    public int findKthLargest(int[] nums, int k) {
          PriorityQueue<Integer> pq = new PriorityQueue<>((a, b) -> a-b);
  
         // Iterate through the array elements
