@@ -1,0 +1,59 @@
+class MyQueue {
+
+    public MyQueue() {
+        
+    }
+    
+    public void push(int x) {
+        s.push(x);
+
+        
+    }
+    
+    public int pop() {
+        Stack<Integer> nstack = new Stack<>();
+        while(!s.isEmpty())
+        {
+            nstack.push(s.pop());
+
+        }
+        int ele=nstack.pop();
+        while(!nstack.isEmpty())
+        {
+            s.push(nstack.pop());
+        }
+
+        return ele;        
+    }
+    
+    public int peek() {
+         Stack<Integer> nstack = new Stack<>();
+        while(!s.isEmpty())
+        {
+            nstack.push(s.pop());
+
+        }
+        int ele=nstack.peek();
+        while(!nstack.isEmpty())
+        {
+            s.push(nstack.pop());
+        }
+
+        return ele;  
+    }
+    
+    public boolean empty() {
+        return s.isEmpty();
+        
+    }
+ Stack<Integer> s = new Stack<>();
+}
+
+/**
+ * Your MyQueue object will be instantiated and called as such:
+ * MyQueue obj = new MyQueue();
+ * obj.push(x);
+ * int param_2 = obj.pop();
+ * int param_3 = obj.peek();
+ * boolean param_4 = obj.empty();
+ */
